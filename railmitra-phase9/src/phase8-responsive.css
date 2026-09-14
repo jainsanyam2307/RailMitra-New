@@ -1,0 +1,161 @@
+
+/* RailMitra Phase 8 — cross-page responsive safety net.
+   Component styles remain the source of truth; these rules only prevent
+   common overflow issues on small screens across every page (Search Trains,
+   Passenger Details, Smart Seat Recommendation, Booking Summary, Payment,
+   E-Ticket, My Bookings, Login/Register/Profile). */
+
+/* Grid/flex layout children need min-width: 0 to shrink instead of forcing
+   the row wider than the viewport — this is the #1 cause of silent mobile
+   overflow with CSS grid/flexbox. Listed here using the actual class names
+   used across every page. */
+.page-grid,
+.content-grid,
+.search-content,
+.passenger-content,
+.recommendation-grid,
+.recommendation-sidebar,
+.summary-grid,
+.summary-main,
+.payment-grid,
+.profile-grid,
+.auth-shell,
+.success-grid,
+.success-main,
+.train-results,
+.bookings-list,
+.booking-route,
+.success-route,
+.journey-route,
+.ticket-journey {
+  min-width: 0;
+}
+
+.card,
+.panel,
+.train-card,
+.booking-card,
+.ticket,
+.ticket-card,
+.summary-card,
+.fare-card,
+.payment-card,
+.payment-order,
+.passenger-card,
+.smart-note,
+.category-guide,
+.sidebar-card,
+.smart-recommendation-card,
+.seat-map-card,
+.alternative-section,
+.success-panel,
+.success-side,
+.auth-card,
+.profile-side,
+.journey-mini-card,
+.recommendation-train-card {
+  min-width: 0;
+}
+
+/* Flex rows that display user-entered or variable-length data (name, email,
+   train name, passenger name) need to be able to shrink and wrap rather
+   than push the row wider than the screen. */
+.profile-hero,
+.assignment-row,
+.assignment-passenger,
+.booking-card-top,
+.train-card-top,
+.train-identity,
+.success-card,
+.success-panel-head,
+.summary-header,
+.summary-card-head,
+.payment-header,
+.bookings-header,
+.recommendation-header,
+.passenger-page-header,
+.search-page-header {
+  min-width: 0;
+}
+
+.profile-hero > *,
+.assignment-row > *,
+.success-panel-head > * {
+  min-width: 0;
+}
+
+table {
+  max-width: 100%;
+}
+
+/* Progress trackers (booking steps) should always be able to scroll
+   horizontally rather than have steps silently clipped by the page's
+   overflow-x: hidden safety net on mid-width screens. */
+.recommendation-progress,
+.payment-progress,
+.summary-progress,
+.passenger-progress {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+  }
+
+  .page-title,
+  .hero-title,
+  h1,
+  h2,
+  h3 {
+    overflow-wrap: anywhere;
+  }
+
+  /* Any user-entered text (names, emails, addresses, long train/station
+     names) gets a wrap safety net at mobile widths, without affecting
+     normal short copy elsewhere. */
+  .profile-hero p,
+  .profile-hero h1,
+  .booking-card h2,
+  .train-identity h2,
+  .assignment-passenger span,
+  .passenger-summary-person strong,
+  .auth-card input:disabled {
+    overflow-wrap: anywhere;
+  }
+
+  .btn-row,
+  .actions,
+  .form-actions {
+    flex-wrap: wrap;
+  }
+
+  .btn-row > .btn,
+  .actions > .btn {
+    max-width: 100%;
+  }
+
+  .table-wrapper,
+  .responsive-table,
+  .overflow-x {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  input,
+  select,
+  textarea {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn-block-mobile {
+    width: 100%;
+  }
+
+  .hide-mobile {
+    display: none !important;
+  }
+}

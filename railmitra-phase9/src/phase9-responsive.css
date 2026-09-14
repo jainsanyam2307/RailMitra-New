@@ -1,0 +1,133 @@
+/* RailMitra Phase 9 — final responsive pass for inner pages */
+
+/* Prevent long labels/IDs/station names from widening cards. */
+.train-card,
+.passenger-card,
+.summary-card,
+.fare-card,
+.payment-card,
+.payment-order,
+.success-card,
+.success-panel,
+.success-side,
+.ticket,
+.booking-card,
+.auth-card,
+.profile-side,
+.sidebar-card,
+.seat-map-card,
+.coach {
+  overflow-wrap: anywhere;
+}
+
+/* Keep buttons and controls usable on touch screens. */
+button,
+.btn,
+select,
+input,
+textarea {
+  max-width: 100%;
+}
+
+@media (max-width: 700px) {
+  .container { padding-inline: 1rem; }
+
+  /* Search results */
+  .search-toolbar { gap: .75rem; }
+  .sort-control select { min-width: 0; width: min(48vw, 180px); }
+
+  /* Passenger details */
+  .passenger-page-header p,
+  .recommendation-header p,
+  .summary-header p,
+  .payment-header p { max-width: none; }
+  .passenger-card-head { flex-wrap: wrap; }
+  .passenger-card-head > * { min-width: 0; }
+  .passenger-remove { flex: 0 0 auto; }
+  .passenger-category > div:nth-child(2) { flex: 1 1 160px; }
+
+  /* Recommendation / seat map */
+  .recommendation-grid { gap: 1rem; }
+  .coach { padding: .75rem; }
+  .coach-seats { gap: .35rem; }
+  .seat-button { min-width: 0; width: 100%; }
+  .assignment-row { flex-wrap: wrap; }
+  .assignment-seat { min-width: 0; text-align: left; width: 100%; }
+
+  /* Summary */
+  .summary-status { white-space: normal; }
+  .summary-card-head { flex-wrap: wrap; }
+  .train-number-chip { max-width: 100%; }
+  .journey-meta { gap: .7rem; }
+  .seat-summary-footer { align-items: flex-start; flex-direction: column; gap: .5rem; }
+  .fare-card-top h2 { font-size: 2rem; }
+  .fare-line { align-items: flex-start; }
+  .fare-line strong { text-align: right; }
+
+  /* Payment */
+  .payment-demo-badge { white-space: normal; }
+  .payment-method { min-width: 0; }
+  .payment-pay { width: 100%; }
+
+  /* Booking success */
+  .success-panel-head { flex-wrap: wrap; }
+  .success-chip { max-width: 100%; }
+  .success-passengers > div { gap: .4rem; }
+
+  /* Ticket */
+  .ticket { border-radius: 12px; }
+  .ticket-header { align-items: flex-start; gap: .75rem; }
+  .ticket-brand { font-size: 1.4rem; }
+  .ticket-confirmed { flex: 0 0 auto; }
+  .ticket-id-row { grid-template-columns: 1fr 1fr; gap: .9rem; }
+  .ticket-details { grid-template-columns: 1fr 1fr; gap: .9rem; }
+  .ticket-table-head,
+  .ticket-table-row { gap: .6rem; }
+  .ticket-footer { align-items: flex-start; gap: 1rem; }
+
+  /* My bookings */
+  .booking-card-top { flex-wrap: wrap; }
+  .booking-status { flex: 0 0 auto; }
+  .booking-card-bottom { align-items: flex-start; }
+  .booking-card-bottom > strong { margin-left: 0; width: 100%; }
+  .booking-actions { flex-wrap: wrap; }
+  .booking-actions .btn { min-width: 0; }
+
+  /* Auth / profile */
+  .auth-shell,
+  .profile-shell { padding-inline: 1rem; }
+  .auth-card { padding: 1.15rem; }
+  .profile-hero { align-items: flex-start; }
+  .profile-avatar { flex: 0 0 60px; width: 60px; height: 60px; font-size: 1.45rem; }
+}
+
+@media (max-width: 420px) {
+  .container,
+  .auth-shell,
+  .profile-shell { padding-inline: .8rem; }
+
+  .search-toolbar { align-items: stretch; flex-direction: column; }
+  .sort-control { align-items: stretch; }
+  .sort-control select { width: 100%; }
+
+  .passenger-card,
+  .summary-card,
+  .payment-card,
+  .payment-order,
+  .success-panel,
+  .success-side { padding: .9rem; }
+
+  .ticket-header { flex-direction: column; }
+  .ticket-confirmed { align-self: flex-start; }
+  .ticket-id-row,
+  .ticket-details { grid-template-columns: 1fr; }
+  .ticket-journey { padding: 1.2rem .9rem; }
+  .ticket-passengers { padding: 1rem .9rem; }
+  .ticket-footer { padding: 1rem .9rem; flex-direction: column; }
+  .ticket-qr { align-self: center; }
+
+  .booking-route { gap: .7rem; padding: .8rem; }
+  .booking-route strong { font-size: 1rem; }
+
+  .auth-two { gap: .7rem; }
+}

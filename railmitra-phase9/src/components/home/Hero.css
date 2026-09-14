@@ -1,0 +1,154 @@
+.hero {
+  position: relative;
+  background: linear-gradient(165deg, var(--color-ink-800) 0%, var(--color-ink-900) 65%);
+  color: var(--color-text-on-dark);
+  padding-block: var(--space-9) calc(var(--space-9) + 3.5rem);
+  overflow: hidden;
+}
+
+/* Signature element: a railway track running through the hero, made of two
+   rails and evenly spaced sleepers — a real track-map cue, not a generic
+   gradient blob. Purely decorative, so it's hidden from assistive tech. */
+.hero-track {
+  position: absolute;
+  left: -5%;
+  right: -5%;
+  bottom: 46px;
+  height: 34px;
+  background-image: repeating-linear-gradient(
+      90deg,
+      rgba(232, 163, 61, 0.55) 0,
+      rgba(232, 163, 61, 0.55) 3px,
+      transparent 3px,
+      transparent 28px
+    ),
+    linear-gradient(rgba(232, 163, 61, 0.35), rgba(232, 163, 61, 0.35)),
+    linear-gradient(rgba(232, 163, 61, 0.35), rgba(232, 163, 61, 0.35));
+  background-repeat: repeat-x, no-repeat, no-repeat;
+  background-size: 28px 34px, 100% 3px, 100% 3px;
+  background-position: 0 0, 0 4px, 0 30px;
+  opacity: 0.55;
+  transform: rotate(-1.2deg) scaleX(1.05);
+}
+
+.hero-inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: var(--space-7);
+  align-items: center;
+}
+
+.hero-copy .eyebrow {
+  color: var(--color-amber-500);
+}
+
+.hero-copy h1 {
+  color: var(--color-text-on-dark);
+  font-size: clamp(2.2rem, 4.4vw, 3.4rem);
+  line-height: 1.12;
+  margin-top: var(--space-4);
+}
+
+.hero-copy p {
+  color: var(--color-text-on-dark-muted);
+  font-size: 1.1rem;
+  max-width: 46ch;
+  margin-top: var(--space-4);
+}
+
+.hero-stats {
+  display: flex;
+  gap: var(--space-7);
+  margin-top: var(--space-7);
+  flex-wrap: wrap;
+}
+
+.hero-stats li {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hero-stats strong {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--color-text-on-dark);
+}
+
+.hero-stats span {
+  font-size: 0.85rem;
+  color: var(--color-text-on-dark-muted);
+}
+
+.hero-form-wrap {
+  width: min(100%, 700px);
+  justify-self: end;
+  animation: hero-rise 700ms var(--ease-standard) both;
+}
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 960px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-form-wrap {
+    width: 100%;
+    justify-self: stretch;
+  }
+
+  .hero-track {
+    bottom: 20px;
+  }
+}
+
+@media (max-width: 520px) {
+  .hero {
+    padding-block: 2.5rem 4rem;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(2rem, 9vw, 2.55rem);
+    line-height: 1.08;
+  }
+
+  .hero-copy p {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem 1rem;
+  }
+
+  .hero-stats li:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .hero-stats strong {
+    font-size: 1.35rem;
+  }
+
+  .hero-stats span {
+    font-size: 0.8rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-form-wrap {
+    animation: none;
+  }
+}

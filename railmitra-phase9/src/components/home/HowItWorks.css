@@ -1,0 +1,101 @@
+.how-it-works {
+  background: var(--color-paper-raised);
+  border-top: 1px solid var(--color-line);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.route {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-5);
+  position: relative;
+  counter-reset: none;
+}
+
+.route::before {
+  content: "";
+  position: absolute;
+  top: 22px;
+  left: calc(12.5% - 1px);
+  right: calc(12.5% - 1px);
+  height: 2px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--color-line-strong) 0,
+    var(--color-line-strong) 8px,
+    transparent 8px,
+    transparent 16px
+  );
+}
+
+.route-stop {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.route-stop-marker {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  z-index: 1;
+}
+
+.route-stop-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--color-paper-raised);
+  border: 3px solid var(--color-amber-500);
+  transition: transform var(--duration-base) var(--ease-standard);
+}
+
+.route-stop:hover .route-stop-dot {
+  transform: scale(1.2);
+  background: var(--color-amber-500);
+}
+
+.route-stop-code {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text-500);
+}
+
+.route-stop-content h3 {
+  font-size: 1.05rem;
+  margin-bottom: var(--space-2);
+}
+
+.route-stop-content p {
+  color: var(--color-text-500);
+  font-size: 0.92rem;
+}
+
+@media (max-width: 860px) {
+  .route {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .route::before {
+    top: 0;
+    bottom: 0;
+    left: 21px;
+    right: auto;
+    width: 2px;
+    height: auto;
+    background: repeating-linear-gradient(
+      180deg,
+      var(--color-line-strong) 0,
+      var(--color-line-strong) 8px,
+      transparent 8px,
+      transparent 16px
+    );
+  }
+
+  .route-stop-content {
+    padding-left: calc(14px + var(--space-3) + 3px);
+  }
+}

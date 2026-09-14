@@ -1,0 +1,29 @@
+.coming-soon {
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: var(--space-4);
+  padding-block: var(--space-9);
+}
+
+.coming-soon-icon {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-md);
+  background: var(--color-amber-100);
+  color: var(--color-amber-600);
+}
+
+.coming-soon h1 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.coming-soon p {
+  color: var(--color-text-500);
+  max-width: 48ch;
+}
